@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to My Website!</title>
+    <title>Welcome to My Website</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -26,13 +26,18 @@
             top: -100px; /* Initial position off the screen */
             left: 0;
             width: 100%;
+			transition: top 0.3s; /* Add smooth transition for sliding effect */
         }
+		
+		.banner.show {
+			top: 0; /* Move banner into view */
+		}
     </style>
 </head>
 <body>
 
 <header>
-    <div class="banner">
+    <div class="banner" id="banner">
         <h1>Welcome to my website! Feel free to look around!</h1>
     </div>
 
@@ -52,8 +57,8 @@
 <script>
 // Animate the banner to slide down after a short delay
 setTimeout(function() {
-    document.querySelector('.banner').style.top = '0';
-}, 100); // Adjust the delay as needed
+	document.getElementById('banner').classList.add('show');
+}, 1000); // Adjust the delay as needed
 </script>
 
 </body>
