@@ -68,8 +68,20 @@
 <script>
 // Animate the banner to slide down after a short delay
 setTimeout(function() {
-	document.getElementById('banner').classList.add('show');
+    document.getElementById('banner').classList.add('show');
 }, 1000); // Adjust the delay as needed
+
+// Event listener for scroll event
+window.addEventListener('scroll', function() {
+    var banner = document.getElementById('banner');
+    if (window.pageYOffset === 0) {
+        // Hide banner when at the top of the page
+        banner.classList.remove('show');
+    } else {
+        // Show banner when not at the top
+        banner.classList.add('show');
+    }
+});
 </script>
 
 </body>
