@@ -34,9 +34,9 @@
         }
 		
 		.banner.show {
-			top: -100px; /* Hide the banner when scrolled down */
-		}
-
+                    top: 0; /* Show the banner */
+                }
+	    
         nav {
             background-color: #333; /* Change background color of navigation */
             text-align:center; /* Center align navigation items */
@@ -91,12 +91,14 @@
 
 <script>
 window.addEventListener('scroll', function() {
-	var banner = document.getElementById('banner');
-	if (window.pageYOffset === 0) {
-	    banner.classList.remove('show');
-	} else {
-	    banner.classList.add('show');
-	}
+    var banner = document.getElementById('banner');
+    if (window.pageYOffset > 0) {
+        // If the user has scrolled down, keep the banner visible
+        banner.classList.remove('show');
+    } else {
+        // If the user is at the top of the page, hide the banner
+        banner.classList.add('show');
+    }
 });
 </script>
 
