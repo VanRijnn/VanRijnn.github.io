@@ -36,6 +36,11 @@
 		.banner.show {
                     top: 0; /* Show the banner */
                 }
+
+                .banner {
+                    /* ... other styles ... */
+                    top: -100px; /* Start with the banner hidden */
+                    }
 	    
         nav {
             background-color: #333; /* Change background color of navigation */
@@ -93,11 +98,11 @@
 window.addEventListener('scroll', function() {
     var banner = document.getElementById('banner');
     if (window.pageYOffset > 0) {
-        // If the user has scrolled down, keep the banner visible
-        banner.classList.remove('show');
+        // If the user has scrolled down, show the banner
+        banner.classList.add('show');
     } else {
         // If the user is at the top of the page, hide the banner
-        banner.classList.add('show');
+        banner.classList.remove('show');
     }
 });
 </script>
