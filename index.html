@@ -39,6 +39,35 @@
         a {
             color: #00f; /* Example color for links */
         }
+	    
+        nav {
+            display: flex; /* Makes the nav a flex container */
+            justify-content: center; /* Centers the items horizontally */
+            align-items: center; /* Centers the items vertically */
+        }
+
+        nav ul {
+            list-style: none; /* Removes default list styling */
+            display: flex; /* Display list items in a row */
+            padding: 0; /* Removes default padding */
+            margin: 0; /* Removes default margin */
+        }
+
+        nav ul li {
+            margin-right: 20px; /* Spacing between each list item */
+        }
+
+        nav ul li:last-child {
+            margin-right: 0; /* Removes margin from the last item */
+        }
+
+        nav a {
+            text-decoration: none; /* Removes underline from links */
+            color: inherit; /* Inherits text color from parent */
+            padding: 10px; /* Adds padding for a larger click area */
+        }
+
+        /* ... additional styles if needed ... */
     </style>
 </head>
 <body>
