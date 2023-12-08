@@ -35,39 +35,35 @@
 			top: 0;
 		}
 
-        /* Add additional styling for links if needed */
-        a {
-            color: #00f; /* Example color for links */
-        }
-	    
         nav {
-            display: flex; /* Makes the nav a flex container */
-            justify-content: center; /* Centers the items horizontally */
-            align-items: center; /* Centers the items vertically */
+            background-color: #333; /* Change background color of navigation */
+            text-align: center; /* Center align navigation items */
+			padding-top: 10px; /* Add padding to top of navigation */
+			padding-bottom :10px; /* Add padding to bottom of navigation */
         }
 
         nav ul {
-            list-style: none; /* Removes default list styling */
-            display: flex; /* Display list items in a row */
-            padding: 0; /* Removes default padding */
-            margin: 0; /* Removes default margin */
+            list-style-type:none; /* Removes default list styling */
+			display:flex; /* Display list items in a row */
+			justify-content:center; /* Centers the items horizontally */
+			padding-left :0px;/* Removes default padding from left*/
+			margin-left :0px;/* Removes default margin from left*/
         }
 
         nav ul li {
-            margin-right: 20px; /* Spacing between each list item */
+			margin-right :20px;/* Spacing between each list item*/
         }
 
-        nav ul li:last-child {
-            margin-right: 0; /* Removes margin from the last item */
-        }
+		nav ul li:last-child {
+			margin-right :0;/* Removes margin from the last item*/
+		}
 
-        nav a {
-            text-decoration: none; /* Removes underline from links */
-            color: inherit; /* Inherits text color from parent */
-            padding: 10px; /* Adds padding for a larger click area */
-        }
-
-        /* ... additional styles if needed ... */
+		nav a {
+			text-decoration:none;/* Removes underline from links*/
+			color:#fff;/* Sets link color to white*/
+   			padding :10px 15px;/* Adds padding for a larger click area*/
+ 		}
+        
     </style>
 </head>
 <body>
@@ -79,32 +75,30 @@
 
     <nav>
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#conversion">Conversion</a></li>
-            <li><a href="#income_tax">Income Tax</a></li>
-            <li><a href="#factorial">Factorials</a></li>
-        </ul>
-    </nav>
-
+             <li><a href="#home">Home</a></li>
+             <li><a href="#conversion">Conversion</a></li>
+             <li><a href="#income_tax">Income Tax</a></li>
+             <li><a href="#factorial">Factorials</a></li>   
+         </ul> 
+     </nav> 
 </header>
 
 <div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-    <!-- Repeat the above paragraph or add different content as needed -->
+   <!-- Your content goes here -->
 </div>
 
 <script>
 setTimeout(function() {
-    document.getElementById('banner').classList.add('show');
+	document.getElementById('banner').classList.add('show');
 }, 1000);
 
 window.addEventListener('scroll', function() {
-    var banner = document.getElementById('banner');
-    if (window.pageYOffset === 0) {
-        banner.classList.remove('show');
-    } else {
-        banner.classList.add('show');
-    }
+	var banner = document.getElementById('banner');
+	if (window.pageYOffset === 0) {
+	    banner.classList.remove('show');
+	} else {
+	    banner.classList.add('show');
+	}
 });
 </script>
 
