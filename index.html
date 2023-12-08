@@ -25,45 +25,46 @@
             color: #000; /* Change banner text to black */
             text-align: center;
             padding: 20px;
-            position: absolute;
-            top: -100px;
-            left: 0;
-            width: 100%;
+            position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			z-index: 1000; /* Ensure the banner is on top of other content */
 			transition: top 0.3s;
         }
 		
 		.banner.show {
-			top: 0;
+			top: -100px; /* Hide the banner when scrolled down */
 		}
 
         nav {
             background-color: #333; /* Change background color of navigation */
-            text-align: center; /* Center align navigation items */
-			padding-top: 10px; /* Add padding to top of navigation */
-			padding-bottom :10px; /* Add padding to bottom of navigation */
+            text-align:center; /* Center align navigation items */
+			padding-top :10px;/* Add padding to top of navigation */
+			padding-bottom :10px;/* Add padding to bottom of navigation */
         }
 
         nav ul {
-            list-style-type:none; /* Removes default list styling */
-			display:flex; /* Display list items in a row */
-			justify-content:center; /* Centers the items horizontally */
-			padding-left :0px;/* Removes default padding from left*/
-			margin-left :0px;/* Removes default margin from left*/
-        }
+           list-style-type:none;/* Removes default list styling*/
+		   display:flex;/* Display list items in a row*/
+		   justify-content:center;/* Centers the items horizontally*/
+		   padding-left :0px;/* Removes default padding from left*/
+		   margin-left :0px;/* Removes default margin from left*/
+       }
 
-        nav ul li {
-			margin-right :20px;/* Spacing between each list item*/
-        }
+       nav ul li {
+		   margin-right :20px;/* Spacing between each list item*/
+       }
 
-		nav ul li:last-child {
-			margin-right :0;/* Removes margin from the last item*/
-		}
+	   nav ul li:last-child {
+		   margin-right :0;/* Removes margin from the last item*/
+	   }
 
-		nav a {
-			text-decoration:none;/* Removes underline from links*/
-			color:#fff;/* Sets link color to white*/
-   			padding :10px 15px;/* Adds padding for a larger click area*/
- 		}
+	   nav a {
+		   text-decoration:none;/* Removes underline from links*/
+		   color:#fff;/* Sets link color to white*/
+   		   padding :10px 15px;/* Adds padding for a larger click area*/
+ 	   }
         
     </style>
 </head>
@@ -84,15 +85,11 @@
      </nav> 
 </header>
 
-<div>
+<div style="height: 1500px;">
    <!-- Your content goes here -->
 </div>
 
 <script>
-setTimeout(function() {
-	document.getElementById('banner').classList.add('show');
-}, 1000);
-
 window.addEventListener('scroll', function() {
 	var banner = document.getElementById('banner');
 	if (window.pageYOffset === 0) {
