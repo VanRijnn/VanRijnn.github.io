@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-color: #1f1f1f;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    table {
+      margin: 0 auto;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    input, button {
+      margin-bottom: 10px;
+    }
+    #projectName {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      color: #808080; /* Light grey for contrast */
+    }
+  </style>
+</head>
+<body>
+
+<h1>Simple Payroll</h1>
+
+<!-- Form to Add Employee -->
+<form id="addEmployeeForm">
+  <input type="text" id="name" placeholder="Employee Name" required>
+  <input type="number" id="daysWorked" placeholder="Days Worked" required>
+  <input type="number" id="dailyRate" placeholder="Daily Rate" required>
+  <input type="number" id="deductionAmount" placeholder="Deduction Amount" required>
+  <button type="submit">Add Employee</button>
+</form>
+
+<!-- Form to Delete Employee -->
+<form id="deleteEmployeeForm">
+  <input type="number" id="lineNumber" placeholder="Line Number to Delete" required>
+  <button type="submit">Delete Employee</button>
+</form>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th>Employee Name</th>
+      <th>Days Worked</th>
+      <th>Daily Rate</th>
+      <th>Gross Pay</th>
+      <th>Deduction Amount</th>
+      <th>Net Pay</th>
+    </tr>
+  </thead>
+  <tbody id="payrollTableBody"></tbody>
+</table>
+
+<span id="projectName">Simple Payroll</span>
+
+<script>
+  const payrollData = [];
+
+  document.getElementById("addEmployeeForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const name = document.getElementById("name").value;
+    const daysWorked = parseInt(document.getElementById("daysWorked").value, 10);
+    const dailyRate = parseFloat(document.getElementById("dailyRate").value);
+    const deductionAmount = parseFloat(document.getElementById("deductionAmount").value);
+    addEmployee(name, daysWorked, dailyRate, deductionAmount);
+  });
+
+  document.getElementById("deleteEmployeeForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const lineNumber = parseInt(document.getElementById("lineNumber").value, 10);
+    deleteEmployee(lineNumber);
+  });
+
+  function addEmployee(name, daysWorked, dailyRate, deductionAmount) {
+    const grossPay = daysWorked * dailyRate;
+    const netPay = grossPay - deductionAmount;
+    const payrollEntry = { name, daysWorked, dailyRate, grossPay, deductionAmount, netPay };
+    payrollData.push(payrollEntry);
+    updateTable();
+  }
+
+  function deleteEmployee(lineNumber) {
+    if(lineNumber > 0 && lineNumber <= payrollData.length) {
+      payrollData.splice(lineNumber - 1, 1);
+      updateTable();
+    } else {
+      alert("Invalid line number");
+    }
+  }
+
+  function updateTable() {
+    const tableBody = document.getElementById("payrollTableBody");
+    tableBody.innerHTML = "";
+    payrollData.forEach((employee, index) => {
+      const row = tableBody.insertRow();
+      row.insertCell(0).textContent = index + 1;
+      row.insertCell(1).textContent = employee.name;
+      row.insertCell(2).textContent = employee.daysWorked;
+      row.insertCell(3).textContent = employee.dailyRate;
+      row.insertCell(4).textContent = employee.grossPay;
+      row.insertCell(5).textContent = employee.deductionAmount;
+      row.insertCell(6).textContent = employee.netPay;
+    });
+  }
+</script>
+
+</body>
+</html>
