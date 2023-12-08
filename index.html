@@ -9,8 +9,8 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f2f2f2;
-            /* Set a minimum height for the body to enable scrolling */
+            background-color: #000; /* Change to black */
+            color: #fff; /* Change text to white */
             min-height: 1500px; 
         }
 
@@ -20,20 +20,25 @@
         }
 
         .banner {
-            background-color: #333;
-            color: #fff;
+            background-color: #fff; /* Change banner background to white */
+            color: #000; /* Change banner text to black */
             text-align: center;
             padding: 20px;
             position: absolute;
-            top: -100px; /* Initial position off the screen */
+            top: -100px;
             left: 0;
             width: 100%;
-			transition: top 0.3s; /* Add smooth transition for sliding effect */
+			transition: top 0.3s;
         }
 		
 		.banner.show {
-			top: 0; /* Move banner into view */
+			top: 0;
 		}
+
+        /* Add additional styling for links if needed */
+        a {
+            color: #00f; /* Example color for links */
+        }
     </style>
 </head>
 <body>
@@ -54,31 +59,21 @@
 
 </header>
 
-<!-- Content of your website goes here -->
-<!-- Adding multiple paragraphs as an example -->
-<!-- Adding multiple paragraphs as an example -->	
 <div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
     <!-- Repeat the above paragraph or add different content as needed -->
 </div>
 
 <script>
-// Animate the banner to slide down after a short delay
 setTimeout(function() {
     document.getElementById('banner').classList.add('show');
-}, 1000); // Adjust the delay as needed
+}, 1000);
 
-// Event listener for scroll event
 window.addEventListener('scroll', function() {
     var banner = document.getElementById('banner');
     if (window.pageYOffset === 0) {
-        // Hide banner when at the top of the page
         banner.classList.remove('show');
     } else {
-        // Show banner when not at the top
         banner.classList.add('show');
     }
 });
