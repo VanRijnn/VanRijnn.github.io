@@ -70,8 +70,29 @@
 
 <span id="projectName">Simple Payroll</span>
 
+<dialog id="deleteConfirmationDialog">
+  <form method="dialog">
+    <p>Are you sure you want to delete this employee?</p>
+    <menu>
+      <button value="cancel">Cancel</button>
+      <button id="confirmDelete" value="delete">Delete</button>
+    </menu>
+  </form>
+</dialog>
+
+<dialog id="clearConfirmationDialog">
+  <form method="dialog">
+    <p>Are you sure you want to clear all rows?</p>
+    <menu>
+      <button value="cancel">Cancel</button>
+      <button value="clear">Clear All</button>
+    </menu>
+  </form>
+</dialog>
+  
 <script>
-  const payrollData = [];
+ const payrollData = [];
+  let deleteIndex = -1; // To keep track of which item to delete
 
   document.getElementById("addEmployeeForm").addEventListener("submit", function(event) {
     event.preventDefault();
@@ -82,12 +103,30 @@
     addEmployee(name, daysWorked, dailyRate, deductionAmount);
   });
 
-  document.getElementById("deleteEmployeeForm").addEventListener("submit", function(event) {
+document.getElementById("deleteEmployeeForm").addEventListener("submit", function(event) {
     event.preventDefault();
     const lineNumber = parseInt(document.getElementById("lineNumber").value, 10);
-    deleteEmployee(lineNumber);
+    
+    // Show the modal instead of deleting right away
+    if(lineNumber > 0 && lineNumber <= payrollData.length) {
+      deleteIndex = lineNumber - 1; // Adjust index to be zero-based
+      document.getElementById('deleteConfirmationDialog').showModal();
+    } else {
+      alert("Invalid line number");
+    }
   });
 
+  document.getElementById('confirmDelete').addEventListener('click', function() {
+    if(deleteIndex !== -1) {
+      payrollData.splice(deleteIndex, 1);
+      updateTable();
+      deleteIndex = -1; // Reset delete index
+    }
+    
+    // Close the dialog after action is confirmed
+    document.getElementById('deleteConfirmationDialog').close();
+  });
+  
   function addEmployee(name, daysWorked, dailyRate, deductionAmount) {
     const grossPay = daysWorked * dailyRate;
     const netPay = grossPay - deductionAmount;
