@@ -29,6 +29,9 @@
       right: 10px;
       color: #808080; /* Light grey for contrast */
     }
+    .integer-input, .currency-input, td.integer, td.currency {
+      text-align: right;
+    }
   </style>
 </head>
 <body>
@@ -38,9 +41,9 @@
 <!-- Form to Add Employee -->
 <form id="addEmployeeForm">
   <input type="text" id="name" placeholder="Employee Name" required>
-  <input type="number" id="daysWorked" placeholder="Days Worked" required>
-  <input type="number" id="dailyRate" placeholder="Daily Rate" required>
-  <input type="number" id="deductionAmount" placeholder="Deduction Amount" required>
+  <input type="number" class="integer-input" id="daysWorked" placeholder="Days Worked" required>
+  <input type="number" class="currency-input" id="dailyRate" placeholder="Daily Rate" required>
+  <input type="number" class="currency-input" id="deductionAmount" placeholder="Deduction Amount" required>
   <button type="submit">Add Employee</button>
 </form>
 
@@ -109,11 +112,18 @@
       const row = tableBody.insertRow();
       row.insertCell(0).textContent = index + 1;
       row.insertCell(1).textContent = employee.name;
-      row.insertCell(2).textContent = employee.daysWorked;
-      row.insertCell(3).textContent = employee.dailyRate;
-      row.insertCell(4).textContent = employee.grossPay;
-      row.insertCell(5).textContent = employee.deductionAmount;
-      row.insertCell(6).textContent = employee.netPay;
+      row.insertCell(2).textContent = employee.daysWorked.toFixed(0);
+      row.insertCell(3).textContent = employee.dailyRate.toFixed(2);
+      row.insertCell(4).textContent = employee.grossPay.toFixed(2);
+      row.insertCell(5).textContent = employee.deductionAmount.toFixed(2);
+      row.insertCell(6).textContent = employee.netPay.toFixed(2);
+
+      // Assigning classes for alignment
+      row.cells[2].className = 'integer';
+      row.cells[3].className = 'currency';
+      row.cells[4].className = 'currency';
+      row.cells[5].className = 'currency';
+      row.cells[6].className = 'currency';
     });
   }
 </script>
