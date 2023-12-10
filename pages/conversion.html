@@ -1,196 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="https://i.ibb.co/TMCcj51/welt-yang-honkai-and-1-more-ef1ec9ecc5814bd20e8fe4130cff4cb8.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unit Converter</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #333; 
-            color: #f4f4f4; 
-            text-align: center;
-            padding: 20px;
-        }
-        h1 {
-            color: #f4f4f4; 
-        }
-        label {
-            font-size: 1.2em;
-            margin-right: 10px;
-            color: #f4f4f4;
-        }
-        input[type="number"] {
-            padding: 8px;
-            font-size: 1em;
-            background-color: #666; 
-            color: #f4f4f4;
-        }
-        button {
-            padding: 10px 20px;
-            background-color: #444; 
-            color: white;
-            border: none;
-            cursor: pointer;
-            margin-top: 10px; /* Add margin-top here */
-        }
-        button:hover {
-           background-color:#555; 
-        }
-        p {
-           margin-top:20px; 
-           font-size:1.5em; 
-           color:#f4f4f4; 
-        }
-        
-        .menu-toggle {
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #333;
+        color: #f4f4f4;
+        text-align: center;
+        padding: 20px;
+      }
+
+      h1 {
+        color: #f4f4f4;
+      }
+
+      #assignmentName {
         position: fixed;
-        top: 20px; 
-        left: 20px; 
+        bottom: 10px;
+        right: 10px;
+        font-style: italic;
+      }
+
+      label {
+        font-size: 1.2em;
+        margin-right: 10px;
+        color: #f4f4f4;
+      }
+
+      input[type="number"] {
+        padding: 8px;
+        font-size: 1em;
+        background-color: #666;
+        color: #f4f4f4;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #444;
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+        /* Add margin-top here */
+      }
+
+      button:hover {
+        background-color: #555;
+      }
+
+      p {
+        margin-top: 20px;
+        font-size: 1.5em;
+        color: #f4f4f4;
+      }
+
+      .menu-toggle {
+        position: fixed;
+        top: 20px;
+        left: 20px;
         z-index: 999;
-        }
-        
-        .bar {
-            width: 25px;
-            height: 3px;
-            background-color: #f4f4f4;
-            margin: 5px auto;
-        }
+      }
 
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: -250px;
-            width: 250px;
-            height: 100%;
-            background-color: #111;
-            overflow-x: hidden;
-            padding-top: 20px;
-            transition: left 0.3s ease;
-        }
+      .bar {
+        width: 25px;
+        height: 3px;
+        background-color: #f4f4f4;
+        margin: 5px auto;
+      }
 
-        .sidebar a {
-            padding: 10px 15px;
-            text-decoration: none;
-            font-size: 25px;
-            color: #818181;
-            display: block;
-            margin-top: 40px; 
-        }
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 250px;
+        height: 100%;
+        background-color: #111;
+        overflow-x: hidden;
+        padding-top: 20px;
+        transition: left 0.3s ease;
+      }
 
-        .sidebar a:hover {
-          color:#f1f1f1; 
-        }
+      .sidebar a {
+        padding: 10px 15px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        margin-top: 40px;
+      }
 
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px; 
-            font-size: 24px; 
-            cursor: pointer;
-            color: #818181;
-        }
+      .sidebar a:hover {
+        color: #f1f1f1;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 24px;
+        cursor: pointer;
+        color: #818181;
+      }
     </style>
-</head>
-<body>
-
-<div class="menu-toggle">
-  <div class="bar"></div>
-  <div class="bar"></div>
-  <div class="bar"></div>
-</div>
-
-<!-- Sidebar -->
-<div class="sidebar">
-    <button class="close-btn" onclick="closeMenu()">×</button>
-    <a href="home.html">Home</a>
-    <a href="factorial.html">Factorial</a>
-    <a href="income_tax.html">Income Tax</a>
-    <a href="simple_payroll.html">Simple Payroll</a>
-</div>
-
-<h1>Welcome to Simple Computations!</h1>
-<h2>Unit Converter</h2>
-
-<label for="conversionType">Select Conversion Type:</label>
-<select id="conversionType">
-    <option value="fahrenheitToCelsius">Fahrenheit to Celsius</option>
-    <option value="celsiusToFahrenheit">Celsius to Fahrenheit</option>
-    <option value="metersToFeet">Meters to Feet</option>
-    <option value="feetToMeters">Feet to Meters</option>
-</select>
-
-<div id="inputContainer" style="margin-bottom: 20px;">
-    <label for="inputValue">Enter Value:</label> 
-    <input type="number" id="inputValue">
-</div>
-
-<button onclick="convert()">Convert</button>
-
-<p id="result"></p>
-
- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div class="menu-toggle">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <button class="close-btn" onclick="closeMenu()">×</button>
+      <a href="home.html">Home</a>
+      <a href="factorial.html">Factorial</a>
+      <a href="income_tax.html">Income Tax</a>
+      <a href="simple_payroll.html">Simple Payroll</a>
+    </div>
+    <h1>Welcome to Simple Computations!</h1>
+    <h2>Unit Converter</h2>
+    <label for="conversionType">Select Conversion Type:</label>
+    <select id="conversionType">
+      <option value="fahrenheitToCelsius">Fahrenheit to Celsius</option>
+      <option value="celsiusToFahrenheit">Celsius to Fahrenheit</option>
+      <option value="metersToFeet">Meters to Feet</option>
+      <option value="feetToMeters">Feet to Meters</option>
+    </select>
+      
+    <!-- Assignment Name -->
+    <div id="assignmentName">Simple Computations in Javascript</div>
+      
+    <div id="inputContainer" style="margin-bottom: 20px;">
+      <label for="inputValue">Enter Value:</label>
+      <input type="number" id="inputValue">
+    </div>
+    <button onclick="convert()">Convert</button>
+    <p id="result"></p>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-    $(document).ready(function(){
-        $('.menu-toggle').click(function(){
-            $('.sidebar').toggleClass('active');
-            $(this).toggleClass('active');
+      $(document).ready(function() {
+        $('.menu-toggle').click(function() {
+          $('.sidebar').toggleClass('active');
+          $(this).toggleClass('active');
         });
-    });
-
-    document.addEventListener('DOMContentLoaded', function() {
+      });
+      document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.menu-toggle').addEventListener('click', function(e) {
-            e.stopPropagation();
-            document.querySelector('.sidebar').style.left = '0';
-            document.body.addEventListener('click', closeMenuOnClick);
+          e.stopPropagation();
+          document.querySelector('.sidebar').style.left = '0';
+          document.body.addEventListener('click', closeMenuOnClick);
         });
-
         document.querySelector('.close-btn').addEventListener('click', closeMenu); // Added event listener for close button
-
         function closeMenuOnClick(e) {
-            if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
-                closeMenu();
-                document.body.removeEventListener('click', closeMenuOnClick);
-            }
+          if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
+            closeMenu();
+            document.body.removeEventListener('click', closeMenuOnClick);
+          }
         }
-    });
+      });
 
-    function closeMenu() { // Moved outside DOMContentLoaded event listener
+      function closeMenu() { // Moved outside DOMContentLoaded event listener
         document.querySelector('.sidebar').style.left = '-250px';
-    }
+      }
 
-    function convert() {    
-        const conversionType = document.getElementById('conversionType').value;    
-        const inputValue = parseFloat(document.getElementById('inputValue').value);    
+      function convert() {
+        const conversionType = document.getElementById('conversionType').value;
+        const inputValue = parseFloat(document.getElementById('inputValue').value);
         let result;
-
-        switch (conversionType) {        
-            case 'fahrenheitToCelsius':            
-                result = (inputValue -32) * (5/9);            
-document.getElementById('result').innerText = `${inputValue}°F is equal to ${result.toFixed(2)}°C`;            
-break;
-
-case 'celsiusToFahrenheit':            
-result = (inputValue *9/5) +32;            
-document.getElementById('result').innerText = `${inputValue}°C is equal to ${result.toFixed(2)}°F`;            
-break;
-
-case 'metersToFeet':            
-result = inputValue *3.28084;            
-document.getElementById('result').innerText = `${inputValue} meters is equal to ${result.toFixed(2)} feet`;            
-break;
-
-case 'feetToMeters':           
- result = inputValue /3.28084;           
- document.getElementById('result').innerText= `${inputValue} feet is equal to ${result.toFixed(2)} meters`;           
- break;
-
- default:
-     document.getElementById('result').innerText= "Please select a conversion type";    
-}
-}
-   </script >
-    
-   </body >
-   </html >
+        switch (conversionType) {
+          case 'fahrenheitToCelsius':
+            result = (inputValue - 32) * (5 / 9);
+            document.getElementById('result').innerText = `${inputValue}°F is equal to ${result.toFixed(2)}°C`;
+            break;
+          case 'celsiusToFahrenheit':
+            result = (inputValue * 9 / 5) + 32;
+            document.getElementById('result').innerText = `${inputValue}°C is equal to ${result.toFixed(2)}°F`;
+            break;
+          case 'metersToFeet':
+            result = inputValue * 3.28084;
+            document.getElementById('result').innerText = `${inputValue} meters is equal to ${result.toFixed(2)} feet`;
+            break;
+          case 'feetToMeters':
+            result = inputValue / 3.28084;
+            document.getElementById('result').innerText = `${inputValue} feet is equal to ${result.toFixed(2)} meters`;
+            break;
+          default:
+            document.getElementById('result').innerText = "Please select a conversion type";
+        }
+      }
+    </script>
+  </body>
+</html>
