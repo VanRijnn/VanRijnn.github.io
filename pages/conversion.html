@@ -134,24 +134,16 @@
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {
-    // Event listener for menu toggle and close button
-    $('.menu-toggle, .close-btn').click(function(e) {
-        e.stopPropagation(); // Prevent event bubbling
+    $('.menu-toggle, .close-btn').click(function() {
         toggleSidebar();
-    });
-
-    // Event listener to close sidebar when clicking outside
-    $(document).click(function(e) {
-        if (!$(e.target).closest('.sidebar').length && !$(e.target).closest('.menu-toggle').length) {
-            closeSidebar();
-        }
     });
 });
 
 function toggleSidebar() {
     var sidebar = document.querySelector('.sidebar');
-    var sidebarLeft = window.getComputedStyle(sidebar).left;
+    var sidebarLeft = sidebar.style.left;
 
+    // Check if sidebar is open or closed
     if (sidebarLeft === '0px') {
         sidebar.style.left = '-250px'; // Close sidebar
     } else {
@@ -159,10 +151,13 @@ function toggleSidebar() {
     }
 }
 
-function closeSidebar() {
-    document.querySelector('.sidebar').style.left = '-250px';
-}
-
+document.addEventListener('DOMContentLoaded', function() {
+    document.body.addEventListener('click', function(e) {
+        if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
+            document.querySelector('.sidebar').style.left = '-250px'; // Close sidebar
+        }
+    });
+});
     function closeMenuOnClick(e) {
         if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
             closeMenu();
