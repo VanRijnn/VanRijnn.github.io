@@ -79,15 +79,15 @@
           color:#f1f1f1; 
         }
 
+        /* Updated close button style */
         .close-btn {
-          position:absolute; 
-          top:-20px; 
-          right:-20px; 
-          font-size:36px; 
-          cursor:pointer; 
-          color:#818181; 
-          z-index:-1; /* Ensure it's below other elements */
-      }
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 36px;
+            cursor: pointer;
+            color: #818181;
+        }
     </style>
 </head>
 <body>
@@ -133,6 +133,12 @@
     // Function to toggle the sidebar
 document.querySelector('.menu-toggle').addEventListener('click', function() {
       document.querySelector('.sidebar').style.left = '0';
+      // Close sidebar when clicking outside of it
+      document.body.addEventListener('click', function(e) {
+          if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
+              closeMenu();
+          }
+      });
 });
 
 function closeMenu() {
