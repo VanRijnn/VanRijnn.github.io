@@ -1,183 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="https://i.ibb.co/TMCcj51/welt-yang-honkai-and-1-more-ef1ec9ecc5814bd20e8fe4130cff4cb8.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Income Tax Calculator</title>
     <style>
-        body {
-    font-family: Arial, sans-serif;
-    background-color: #333; 
-    color: #f4f4f4; 
-    text-align: center;
-    padding: 20px;
-}
-h1 {
-    color: #f4f4f4; 
-}
-label {
-    font-size: 1.2em;
-    margin-right: 10px;
-    color: #f4f4f4;
-}
-input[type="number"] {
-    padding: 8px;
-    font-size: 1em;
-    background-color: #666; 
-    color: #f4f4f4;
-}
-button {
-    padding: 10px 20px;
-    background-color: #444; 
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-button:hover {
-    background-color: #555;
-}
-p {
-    margin-top: 20px;
-	font-size: 1.5em;
-	color:#f4f4f4;
-}
-#assignmentName {
-	position: fixed;
-	bottom: 10px;
-	right: 10px;
-	font-style: italic;
-	color:#ccc; 
-}
-.menu-toggle {
-      position: fixed;
-      top: 20px; 
-      left: 20px; 
-      z-index: 999;
-    }
-        
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #333;
+        color: #f4f4f4;
+        text-align: center;
+        padding: 20px;
+      }
+
+      h1 {
+        color: #f4f4f4;
+      }
+
+      label {
+        font-size: 1.2em;
+        margin-right: 10px;
+        color: #f4f4f4;
+      }
+
+      input[type="number"] {
+        padding: 8px;
+        font-size: 1em;
+        background-color: #666;
+        color: #f4f4f4;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #444;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #555;
+      }
+
+      p {
+        margin-top: 20px;
+        font-size: 1.5em;
+        color: #f4f4f4;
+      }
+
+      #assignmentName {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        font-style: italic;
+        color: #ccc;
+      }
+
+      .menu-toggle {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 999;
+      }
+
       .bar {
-       width: 25px;
-       height: 3px;
-       background-color: #f4f4f4;
-       margin: 5px auto;
-    }
+        width: 25px;
+        height: 3px;
+        background-color: #f4f4f4;
+        margin: 5px auto;
+      }
 
       .sidebar {
-       position: fixed;
-       top: 0;
-       left: -250px;
-       width: 250px;
-       height: 100%;
-       background-color: #111;
-       overflow-x: hidden;
-       padding-top: 20px;
-       transition: left 0.3s ease;
-    }
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 250px;
+        height: 100%;
+        background-color: #111;
+        overflow-x: hidden;
+        padding-top: 20px;
+        transition: left 0.3s ease;
+      }
 
       .sidebar a {
-       padding: 10px 15px;
-       text-decoration: none;
-       font-size: 25px;
-       color: #818181;
-       display: block;
-       margin-top: 40px; 
-    }
+        padding: 10px 15px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        margin-top: 40px;
+      }
 
       .sidebar a:hover {
-       color:#f1f1f1; 
-    }
+        color: #f1f1f1;
+      }
 
       .close-btn {
-       position: absolute;
-       top: 10px;
-       right: 10px; 
-       font-size: 24px; 
-       cursor: pointer;
-       color: #818181;
-    }
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 24px;
+        cursor: pointer;
+        color: #818181;
+      }
     </style>
-</head>
-
-<body>
-
-<div class="menu-toggle">
-  <div class="bar"></div>
-  <div class="bar"></div>
-  <div class="bar"></div>
-</div>
-  
-<!-- Sidebar -->
-<div class="sidebar">
-    <button class="close-btn" onclick="closeMenu()">×</button>
-    <a href="home.html">Home</a>
-    <a href="conversion.html">Conversion</a>
-    <a href="factorial.html">Factorials</a>
-    <a href="simple_payroll.html">Simple Payroll</a>
-</div>
-	
+  </head>
+  <body>
+    <div class="menu-toggle">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <button class="close-btn" onclick="closeMenu()">×</button>
+      <a href="home.html">Home</a>
+      <a href="conversion.html">Conversion</a>
+      <a href="factorial.html">Factorials</a>
+      <a href="simple_payroll.html">Simple Payroll</a>
+    </div>
     <h1>Welcome to the Income Tax Calculator!</h1>
     <label for="income">Enter your taxable income (in PHP):</label>
     <input type="number" id="income" name="income">
     <button onclick="calculateTax()">Calculate Tax</button>
-
     <p id="result"></p>
-
     <div id="assignmentName">Income Tax Calculator Program</div>
-
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-    $(document).ready(function(){
-        $('.menu-toggle').click(function(){
-            $('.sidebar').toggleClass('active');
-            $(this).toggleClass('active');
+      $(document).ready(function() {
+        $('.menu-toggle').click(function() {
+          $('.sidebar').toggleClass('active');
+          $(this).toggleClass('active');
         });
-    });
-
-    document.addEventListener('DOMContentLoaded', function() {
+      });
+      document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.menu-toggle').addEventListener('click', function(e) {
-            e.stopPropagation();
-            document.querySelector('.sidebar').style.left = '0';
-            document.body.addEventListener('click', closeMenuOnClick);
+          e.stopPropagation();
+          document.querySelector('.sidebar').style.left = '0';
+          document.body.addEventListener('click', closeMenuOnClick);
         });
-
         document.querySelector('.close-btn').addEventListener('click', closeMenu); // Added event listener for close button
-
         function closeMenuOnClick(e) {
-            if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
-                closeMenu();
-                document.body.removeEventListener('click', closeMenuOnClick);
-            }
-        }
-    });
-
-    function closeMenu() { // Moved outside DOMContentLoaded event listener
-        document.querySelector('.sidebar').style.left = '-250px';
-    }
-	    
-        function calculateTax() {
-              let income = document.getElementById('income').valueAsNumber;
-              let tax = 0;
-    
-                if (income <= 250000) {
-                    tax = 0;
-                } else if (income > 250000 && income <= 400000) {
-                    tax = 0.2 * (income - 250000);
-                } else if (income > 400000 && income <= 800000) {
-                    tax = 30000 + 0.25 * (income - 400000);
-                } else if (income > 800000 && income <= 2000000) {
-                    tax = 130000 + 0.3 * (income - 800000);
-                } else if (income > 2000000 && income <= 8000000) {
-                    tax = 490000 + 0.32 * (income - 2000000);
-                } else {
-                    tax = 2410000 + 0.35 * (income - 8000000);
-                }
-    
-              document.getElementById('result').innerHTML = `Income Tax: PHP ${tax.toFixed(2)}`;
+          if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
+            closeMenu();
+            document.body.removeEventListener('click', closeMenuOnClick);
           }
-    </script>
-</body>
+        }
+      });
 
+      function closeMenu() { // Moved outside DOMContentLoaded event listener
+        document.querySelector('.sidebar').style.left = '-250px';
+      }
+
+      function calculateTax() {
+        let income = document.getElementById('income').valueAsNumber;
+        let tax = 0;
+        if (income <= 250000) {
+          tax = 0;
+        } else if (income > 250000 && income <= 400000) {
+          tax = 0.2 * (income - 250000);
+        } else if (income > 400000 && income <= 800000) {
+          tax = 30000 + 0.25 * (income - 400000);
+        } else if (income > 800000 && income <= 2000000) {
+          tax = 130000 + 0.3 * (income - 800000);
+        } else if (income > 2000000 && income <= 8000000) {
+          tax = 490000 + 0.32 * (income - 2000000);
+        } else {
+          tax = 2410000 + 0.35 * (income - 8000000);
+        }
+        document.getElementById('result').innerHTML = `Income Tax: PHP ${tax.toFixed(2)}`;
+      }
+    </script>
+  </body>
 </html>
