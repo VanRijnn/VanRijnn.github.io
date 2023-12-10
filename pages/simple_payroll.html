@@ -33,10 +33,72 @@
     .integer-input, .currency-input, td.integer, td.currency {
       text-align: right;
     }
+     .menu-toggle {
+      position: fixed;
+      top: 20px; 
+      left: 20px; 
+      z-index: 999;
+    }
+        
+      .bar {
+       width: 25px;
+       height: 3px;
+       background-color: #f4f4f4;
+       margin: 5px auto;
+    }
+
+      .sidebar {
+       position: fixed;
+       top: 0;
+       left: -250px;
+       width: 250px;
+       height: 100%;
+       background-color: #111;
+       overflow-x: hidden;
+       padding-top: 20px;
+       transition: left 0.3s ease;
+    }
+
+      .sidebar a {
+       padding: 10px 15px;
+       text-decoration: none;
+       font-size: 25px;
+       color: #818181;
+       display: block;
+       margin-top: 40px; 
+    }
+
+      .sidebar a:hover {
+       color:#f1f1f1; 
+    }
+
+      .close-btn {
+       position: absolute;
+       top: 10px;
+       right: 10px; 
+       font-size: 24px; 
+       cursor: pointer;
+       color: #818181;
+    }
   </style>
 </head>
 <body>
 
+<div class="menu-toggle">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>
+  
+<!-- Sidebar -->
+<div class="sidebar">
+    <button class="close-btn" onclick="closeMenu()">×</button>
+    <a href="home.html">Home</a>
+    <a href="factorial.html">Factorial</a>
+    <a href="income_tax.html">Income Tax</a>
+    <a href="simple_payroll.html">Simple Payroll</a>
+</div>
+  
 <h1>Simple Payroll</h1>
 
 <!-- Add Employee -->
@@ -91,7 +153,36 @@
   </form>
 </dialog>
   
-<script>
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $('.menu-toggle').click(function(){
+            $('.sidebar').toggleClass('active');
+            $(this).toggleClass('active');
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('.menu-toggle').addEventListener('click', function(e) {
+            e.stopPropagation();
+            document.querySelector('.sidebar').style.left = '0';
+            document.body.addEventListener('click', closeMenuOnClick);
+        });
+
+        document.querySelector('.close-btn').addEventListener('click', closeMenu); // Added event listener for close button
+
+        function closeMenuOnClick(e) {
+            if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
+                closeMenu();
+                document.body.removeEventListener('click', closeMenuOnClick);
+            }
+        }
+    });
+
+    function closeMenu() { // Moved outside DOMContentLoaded event listener
+        document.querySelector('.sidebar').style.left = '-250px';
+    }
+
  const payrollData = [];
   let deleteIndex = -1;
 
