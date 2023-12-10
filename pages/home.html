@@ -1,116 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <link rel="icon" href="https://i.ibb.co/TMCcj51/welt-yang-honkai-and-1-more-ef1ec9ecc5814bd20e8fe4130cff4cb8.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to My Website</title>
     <style>
-      body {
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-image: url('../images/46.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        color: #fff;
-        min-height: 1500px;
-      }
-
-      header {
-        position: relative;
-        overflow: hidden;
-      }
-
-      .banner {
-        background-color: #fff;
-        color: #000;
-        text-align: center;
-        padding: 20px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1000;
-        transition: top 0.3s;
-      }
-
-      .banner.show {
-        top: 0;
-      }
-
-      .banner {
-        top: -100px;
-      }
-
-      nav {
-        background-color: #333;
-        text-align: center;
-        padding-top: 10px;
-        padding-bottom: 10px;
-      }
-
-      nav ul {
-        list-style-type: none;
-        display: flex;
-        justify-content: center;
-        padding-left: 0px;
-        margin-left: 0px;
-      }
-
-      nav ul li {
-        margin-right: 20px;
-      }
-
-      nav ul li:last-child {
-        margin-right: 0;
-      }
-
-      nav a {
-        text-decoration: none;
-        color: #fff;
-        padding: 10px 15px;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <div class="banner" id="banner">
-        <h1>Welcome to my website! Feel free to look around!</h1>
-      </div>
-      <nav>
-        <ul>
-          <li>
-            <a href="home.html">Home</a>
-          </li>
-          <li>
-            <a href="conversion.html">Conversion</a>
-          </li>
-          <li>
-            <a href="income_tax.html">Income Tax</a>
-          </li>
-          <li>
-            <a href="factorial.html">Factorials</a>
-          </li>
-          <li>
-            <a href="simple_payroll.html">Simple Payroll</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <div style="height: 1500px;">
-      <!-- Content -->
-    </div>
-    <script>
-      window.addEventListener('scroll', function() {
-        var banner = document.getElementById('banner');
-        if (window.pageYOffset > 0) {
-          banner.classList.add('show');
-        } else {
-          banner.classList.remove('show');
+        body {
+            font-family: 'Fraunces', serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('images/46.jpg'); 
+            background-size: cover; 
+            background-position: center;
+            background-repeat: no-repeat; 
+            color: #fff;
+            min-height: 1500px; 
         }
-      });
-    </script>
-  </body>
+
+        header {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner {
+            background-color: #fff;
+            color: #000;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			z-index: 1000;
+			transition: top 0.3s;
+        }
+		
+		.banner.show {
+                    top: 0;
+                }
+
+                .banner {
+                    top: -100px; 
+                    }
+	    
+        nav {
+           text-align:center; 
+           padding-top :10px;
+           padding-bottom :10px;
+		   background-color:#333; 
+		   box-shadow : 0 2px 5px rgba(0,0,0,0.2);
+		   z-index :100;
+       }
+
+       nav ul {
+           list-style-type:none;
+           display:flex;
+           justify-content:center;
+           padding-left :0px;
+           margin-left :0px;
+       }
+
+       nav ul li {
+           margin-right :20px;
+       }
+
+       nav ul li:last-child {
+           margin-right :0;
+       }
+
+       nav a {
+           text-decoration:none;
+           color:#fff;
+           padding :10px 15px;
+
+       }
+        
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="banner" id="banner">
+        <h1>Welcome to my website! Feel free to look around!</h1>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="pages/home.html">Home</a></li>
+            <li><a href="pages/conversion.html">Conversion</a></li>
+            <li><a href="pages/income_tax.html">Income Tax</a></li>
+            <li><a href="pages/factorial.html">Factorials</a></li>   
+            <li><a href="pages/simple_payroll.html">Simple Payroll</a></li>
+        </ul> 
+    </nav>
+</header>
+
+<div style="height: 1500px;">
+   <!-- Content -->
+</div>
+
+<script>
+window.addEventListener('scroll', function() {
+    var banner = document.getElementById('banner');
+    if (window.pageYOffset > 50) { 
+        banner.style.top = "0"; 
+		banner.style.transition = "top 300ms";
+		document.querySelector('nav').style.top = "60px"; 
+		document.querySelector('nav').style.transition = "top 300ms";
+    } else {
+		banner.style.top = "-100%"; 
+		document.querySelector('nav').style.top = "100%";
+	}
+});
+</script>
+
+</body>
 </html>
