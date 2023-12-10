@@ -120,6 +120,12 @@
 
 
 <script >
+// Set initial state of dropdown menu to be hidden
+document.addEventListener('DOMContentLoaded', function() {
+  var dropdownContainer = document.querySelector('.dropdown-container');
+  dropdownContainer.style.left = '-250px';
+});
+
 // Function to handle clicking outside the menu
 document.addEventListener('click', function(event) {
   var dropdownBtn = document.querySelector('.dropdown-btn');
