@@ -133,15 +133,12 @@
 
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $(document).ready(function(){
-          $('.menu-toggle').click(function(){
-            $('.sidebar').toggleClass('active');
-          });
-
-          $('.menu-toggle').click(function(){
-            $(this).toggleClass('active');
-          });
-        });
+    $(document).ready(function(){
+     $('.menu-toggle').click(function(){
+     $('.sidebar').toggleClass('active');
+     $(this).toggleClass('active');
+   });
+});
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.menu-toggle').addEventListener('click', function(e) {
         e.stopPropagation(); // Prevent event bubbling
