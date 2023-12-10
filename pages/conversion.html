@@ -61,13 +61,8 @@
              color :#818181 ;
          }
 
-         .sidebar a:hover{
-              color:#f1f1fl ;  
-          }
-
-          .dropdown-container{
-              display:none ; 
-              background-color:#262626 ;  
+         .dropdown-container{
+              display:none ;  
           }
 
           .dropdown-btn{
@@ -76,9 +71,7 @@
 
           .dropdown-btn:hover{
               color:#f1flfl ;   
-          }
-
-          
+          }          
     </style>
 </head>
 <body>
@@ -121,6 +114,26 @@
 
 
 <script >
+// Function to handle clicking on the menu button
+document.addEventListener('click', function(event) {
+  var dropdownBtn = document.querySelector('.dropdown-btn');
+  var dropdownContainer = document.querySelector('.dropdown-container');
+
+if (event.target !== dropdownBtn && event.target.parentNode !== dropdownContainer) {
+   dropdownContainer.style.display = 'none';
+}
+});
+
+// Function to toggle the dropdown menu visibility
+var dropdownBtn = document.querySelector('.dropdown-btn');
+dropdownBtn.addEventListener('click', function() {
+   var dropdownContainer = document.querySelector('.dropdown-container');
+if (dropdownContainer.style.display === 'block') {
+     dropdownContainer.style.display = 'none';
+} else {
+     dropdownContainer.style.display = 'block';
+}
+});
 function convert() {    
 const conversionType = document.getElementById('conversionType').value;    
 const inputValue = parseFloat(document.getElementById('inputValue').value);    
