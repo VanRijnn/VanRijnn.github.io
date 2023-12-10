@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+w<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -131,33 +131,36 @@
 
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-    $(document).ready(function(){
-        $('.menu-toggle').click(function(){
-            $('.sidebar').toggleClass('active');
-            $(this).toggleClass('active');
-        });
-    });
-
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelector('.menu-toggle').addEventListener('click', function(e) {
-            e.stopPropagation();
-            document.querySelector('.sidebar').style.left = '0';
-            document.body.addEventListener('click', closeMenuOnClick);
-        });
-
-        document.querySelector('.close-btn').addEventListener('click', closeMenu); // Added event listener for close button
-
-        function closeMenuOnClick(e) {
-            if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
-                closeMenu();
-                document.body.removeEventListener('click', closeMenuOnClick);
-            }
+        // Move the closeMenu function to the global scope
+        function closeMenu() {
+            document.querySelector('.sidebar').style.left = '-250px';
         }
-    });
 
-    function closeMenu() { // Moved outside DOMContentLoaded event listener
-        document.querySelector('.sidebar').style.left = '-250px';
-    }
+        $(document).ready(function(){
+            $('.menu-toggle').click(function(){
+                $('.sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.menu-toggle').addEventListener('click', function(e) {
+                e.stopPropagation();
+                document.querySelector('.sidebar').style.left = '0';
+                document.body.addEventListener('click', close
+
+MenuOnClick);
+            });
+
+            document.querySelector('.close-btn').addEventListener('click', closeMenu);
+
+            function closeMenuOnClick(e) {
+                if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
+                    closeMenu();
+                    document.body.removeEventListener('click', closeMenuOnClick);
+                }
+            }
+        });
 
     function convert() {    
         const conversionType = document.getElementById('conversionType').value;    
