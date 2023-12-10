@@ -141,14 +141,6 @@ w<!DOCTYPE html>
                 $('.sidebar').toggleClass('active');
                 $(this).toggleClass('active');
             });
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelector('.menu-toggle').addEventListener('click', function(e) {
-                e.stopPropagation();
-                document.querySelector('.sidebar').style.left = '0';
-                document.body.addEventListener('click', closeMenuOnClick);
-            });
 
             document.querySelector('.close-btn').addEventListener('click', closeMenu);
 
@@ -158,6 +150,12 @@ w<!DOCTYPE html>
                     document.body.removeEventListener('click', closeMenuOnClick);
                 }
             }
+
+            document.querySelector('.menu-toggle').addEventListener('click', function(e) {
+                e.stopPropagation();
+                document.querySelector('.sidebar').style.left = '0';
+                document.body.addEventListener('click', closeMenuOnClick);
+            });
         });
 
     function convert() {    
