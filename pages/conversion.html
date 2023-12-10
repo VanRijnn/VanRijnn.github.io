@@ -60,25 +60,34 @@
         left: -250px; /* Initially hidden */
         width: 250px;
         height: 100%;
+        background-color: #111;
+        overflow-x: hidden;
+        padding-top: 20px;
+        transition: left 0.3s ease; /* Smooth transition */
+        }
+	    
+        .sidebar a {
+        padding: 10px 15px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
         }
 
-         .dropdown-container {
-         display: block;
-         position: fixed;
-         top: 0;
-         left: -250px; /* Initially hidden */
-         background-color: #111;
-         overflow-x: hidden;
-         padding-top: 20px;
-         transition: left 0.3s ease; /* Add transition for smooth animation */
-	 }
-          .dropdown-btn{
-              padding :6px 8px 6px 16 px ;  
-          }
+        .sidebar a:hover {
+        color: #f1f1f1;
+        }
 
-          .dropdown-btn:hover{
-              color:#f1flfl ;   
-          }          
+        .close-btn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+        cursor: pointer;
+        color: #818181;
+        }          
     </style>
 </head>
 <body>
@@ -90,15 +99,11 @@
 </div>
 <!-- Sidebar -->
 <div class="sidebar">
-    <button class="dropdown-btn" onclick="toggleMenu()">Menu
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-container">
-      <a href="/home">Home</a>
-      <a href="/factorial">Factorial</a>
-      <a href="/income-tax">Income Tax</a>
-      <a href="/simple-payroll">Simple Payroll</a>
-    </div>
+    <button class="close-btn" onclick="closeMenu()">×</button>
+    <a href="/home">Home</a>
+    <a href="/factorial">Factorial</a>
+    <a href="/income-tax">Income Tax</a>
+    <a href="/simple-payroll">Simple Payroll</a>
 </div>
 
 <h1>Welcome to Simple Computations!</h1>
@@ -147,9 +152,9 @@ document.querySelector('.menu-toggle').addEventListener('click', function() {
     document.querySelector('.sidebar').style.left = '0';
 });
 
-document.querySelector('.sidebar').addEventListener('click', function() {
-    this.style.left = '-250px';
-});
+function closeMenu() {
+    document.querySelector('.sidebar').style.left = '-250px';
+}
 function convert() {    
 const conversionType = document.getElementById('conversionType').value;    
 const inputValue = parseFloat(document.getElementById('inputValue').value);    
