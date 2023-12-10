@@ -147,9 +147,7 @@ w<!DOCTYPE html>
             document.querySelector('.menu-toggle').addEventListener('click', function(e) {
                 e.stopPropagation();
                 document.querySelector('.sidebar').style.left = '0';
-                document.body.addEventListener('click', close
-
-MenuOnClick);
+                document.body.addEventListener('click', closeMenuOnClick);
             });
 
             document.querySelector('.close-btn').addEventListener('click', closeMenu);
