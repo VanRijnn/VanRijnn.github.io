@@ -181,6 +181,15 @@ case 'feetToMeters':
      document.getElementById('result').innerText= "Please select a conversion type";    
 }
 }
+    $(document).ready(function(){
+          $('.menu-toggle').click(function(){
+            $('.sidebar').toggleClass('active');
+          });
+
+          $('.menu-toggle').click(function(){
+            $(this).toggleClass('active');
+          });
+        });
    </script >
 
    </body >
