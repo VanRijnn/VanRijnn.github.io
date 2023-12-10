@@ -133,31 +133,20 @@
 
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-$(document).ready(function() {
-    $('.menu-toggle, .close-btn').click(function() {
-        toggleSidebar();
-    });
+    $(document).ready(function(){
+     $('.menu-toggle').click(function(){
+     $('.sidebar').toggleClass('active');
+     $(this).toggleClass('active');
+   });
 });
-
-function toggleSidebar() {
-    var sidebar = document.querySelector('.sidebar');
-    var sidebarLeft = sidebar.style.left;
-
-    // Check if sidebar is open or closed
-    if (sidebarLeft === '0px') {
-        sidebar.style.left = '-250px'; // Close sidebar
-    } else {
-        sidebar.style.left = '0'; // Open sidebar
-    }
-}
-
 document.addEventListener('DOMContentLoaded', function() {
-    document.body.addEventListener('click', function(e) {
-        if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
-            document.querySelector('.sidebar').style.left = '-250px'; // Close sidebar
-        }
+    document.querySelector('.menu-toggle').addEventListener('click', function(e) {
+        e.stopPropagation(); // Prevent event bubbling
+        document.querySelector('.sidebar').style.left = '0';
+        // Close sidebar when clicking outside of it
+        document.body.addEventListener('click', closeMenuOnClick);
     });
-});
+
     function closeMenuOnClick(e) {
         if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
             closeMenu();
@@ -201,5 +190,5 @@ case 'feetToMeters':
 }
    </script >
 
-   </body >
-   </html >
+</body >
+</html >
