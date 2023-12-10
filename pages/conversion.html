@@ -130,20 +130,25 @@
 <div id ="assignmentName" >Simple Computations in Javascript </div>
 
 <script>
-    // Function to toggle the sidebar
-document.querySelector('.menu-toggle').addEventListener('click', function() {
-      document.querySelector('.sidebar').style.left = '0';
-      // Close sidebar when clicking outside of it
-      document.body.addEventListener('click', function(e) {
-          if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
-              closeMenu();
-          }
-      });
-});
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.menu-toggle').addEventListener('click', function(e) {
+        e.stopPropagation(); // Prevent event bubbling
+        document.querySelector('.sidebar').style.left = '0';
+        // Close sidebar when clicking outside of it
+        document.body.addEventListener('click', closeMenuOnClick);
+    });
 
-function closeMenu() {
-      document.querySelector('.sidebar').style.left = '-250px';
-}
+    function closeMenuOnClick(e) {
+        if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
+            closeMenu();
+            document.body.removeEventListener('click', closeMenuOnClick); // Remove event listener after closing menu
+        }
+    }
+
+    function closeMenu() {
+        document.querySelector('.sidebar').style.left = '-250px';
+    }
+});
     function convert() {    
         const conversionType = document.getElementById('conversionType').value;    
         const inputValue = parseFloat(document.getElementById('inputValue').value);    
