@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="https://i.ibb.co/TMCcj51/welt-yang-honkai-and-1-more-ef1ec9ecc5814bd20e8fe4130cff4cb8.png">
@@ -73,23 +74,24 @@
     }
     </style>
 </head>
+
 <body>
 
-<div class="menu-toggle">
-  <div class="bar"></div>
-  <div class="bar"></div>
-  <div class="bar"></div>
-</div>
-  
-<!-- Sidebar -->
-<div class="sidebar">
-    <button class="close-btn" onclick="closeMenu()">×</button>
-    <a href="home.html">Home</a>
-    <a href="conversion.html">Conversion</a>
-    <a href="income_tax.html">Income Tax</a>
-    <a href="factorial.html">Factorials</a>
-</div>
-    
+    <div class="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <button class="close-btn" onclick="closeMenu()">×</button>
+        <a href="home.html">Home</a>
+        <a href="conversion.html">Conversion</a>
+        <a href="income_tax.html">Income Tax</a>
+        <a href="simple_payroll.html">Simple Payroll</a>
+    </div>
+
     <h1>Welcome! Have a look around...</h1>
 
     <label for="numberInput">Enter a number here:</label>
@@ -103,72 +105,72 @@
     <!-- Assignment Name -->
     <div id="assignmentName">Nth Factorial, Sum and Average</div>
 
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-    $(document).ready(function(){
-        $('.menu-toggle').click(function(){
-            $('.sidebar').toggleClass('active');
-            $(this).toggleClass('active');
+        $(document).ready(function(){
+            $('.menu-toggle').click(function(){
+                $('.sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
         });
-    });
-
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelector('.menu-toggle').addEventListener('click', function(e) {
-            e.stopPropagation();
-            document.querySelector('.sidebar').style.left = '0';
-            document.body.addEventListener('click', closeMenuOnClick);
-        });
-
-        document.querySelector('.close-btn').addEventListener('click', closeMenu); // Added event listener for close button
-
-        function closeMenuOnClick(e) {
-            if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
-                closeMenu();
-                document.body.removeEventListener('click', closeMenuOnClick);
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.menu-toggle').addEventListener('click', function(e) {
+                e.stopPropagation();
+                document.querySelector('.sidebar').style.left = '0';
+                document.body.addEventListener('click', closeMenuOnClick);
+            });
+    
+            document.querySelector('.close-btn').addEventListener('click', closeMenu); 
+    
+            function closeMenuOnClick(e) {
+                if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
+                    closeMenu();
+                    document.body.removeEventListener('click', closeMenuOnClick);
+                }
             }
+        });
+    
+        function closeMenu() { 
+            document.querySelector('.sidebar').style.left = '-250px';
         }
-    });
-
-    function closeMenu() { // Moved outside DOMContentLoaded event listener
-        document.querySelector('.sidebar').style.left = '-250px';
-    }
-        
-        function performCalculations() {
-            const n = parseInt(document.getElementById('numberInput').value);
             
-            if (isNaN(n) || n <= 0) {
-                alert('Please enter a valid positive integer');
-                return;
-            }
-
-            // The nth Factorial (While Loop)
-            let factorial = 1, i = n;
-
-            while (i > 1) {
-                factorial *= i--;
-            }
-            
-            // The Sum of the First n Numbers (Do While Loop)
-            let sum = 0, j = 1;
-
-            do {
-                sum += j++;
-            } while (j <= n);
-            
-             // The Average of the First n Numbers (For Loop)
-             let total = 0;
-
-             for (let k = 1; k <= n; k++) {
-                 total += k;
+            function performCalculations() {
+                const n = parseInt(document.getElementById('numberInput').value);
+                
+                if (isNaN(n) || n <= 0) {
+                    alert('Please enter a valid positive integer');
+                    return;
+                }
+    
+                // While Loop
+                let factorial = 1, i = n;
+    
+                while (i > 1) {
+                    factorial *= i--;
+                }
+                
+                // Do While Loop
+                let sum = 0, j = 1;
+    
+                do {
+                    sum += j++;
+                } while (j <= n);
+                
+                 // For Loop
+                 let total = 0;
+    
+                 for (let k = 1; k <= n; k++) {
+                     total += k;
+                 }
+    
+                 const average = total / n;
+    
+                 document.getElementById('factorialResult').textContent = factorial.toString();
+                 document.getElementById('sumResult').textContent = sum.toString();
+                 document.getElementById('averageResult').textContent = average.toString();
              }
+    </script>
+</body>
 
-             const average = total / n;
-
-             // Display results
-             document.getElementById('factorialResult').textContent = factorial.toString();
-             document.getElementById('sumResult').textContent = sum.toString();
-             document.getElementById('averageResult').textContent = average.toString();
-         }
-     </script>
- </body>
- </html>
+</html>
