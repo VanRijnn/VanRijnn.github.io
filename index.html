@@ -10,11 +10,11 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('images/46.jpg'); /* Add your PNG image path here */
-            background-size: cover; /* Cover the entire viewport */
-            background-position: center; /* Center the image */
-            background-repeat: no-repeat; /* Prevent the image from repeating */
-            color: #fff; /* Change text to white */
+            background-image: url('images/46.jpg'); 
+            background-size: cover; 
+            background-position: center;
+            background-repeat: no-repeat; 
+            color: #fff;
             min-height: 1500px; 
         }
 
@@ -24,54 +24,53 @@
         }
 
         .banner {
-            background-color: #fff; /* Change banner background to white */
-            color: #000; /* Change banner text to black */
+            background-color: #fff;
+            color: #000;
             text-align: center;
             padding: 20px;
             position: fixed;
 			top: 0;
 			left: 0;
 			width: 100%;
-			z-index: 1000; /* Ensure the banner is on top of other content */
+			z-index: 1000;
 			transition: top 0.3s;
         }
 		
 		.banner.show {
-                    top: 0; /* Show the banner */
+                    top: 0;
                 }
 
                 .banner {
-                    /* ... other styles ... */
-                    top: -100px; /* Start with the banner hidden */
+                    top: -100px; 
                     }
 	    
         nav {
-            background-color: #333; /* Change background color of navigation */
-            text-align:center; /* Center align navigation items */
-			padding-top :10px;/* Add padding to top of navigation */
-			padding-bottom :10px;/* Add padding to bottom of navigation */
+            background-color: #333; 
+            text-align:center;
+			padding-top :10px;
+			padding-bottom :10px;
         }
 
         nav ul {
-           list-style-type:none;/* Removes default list styling*/
-		   display:flex;/* Display list items in a row*/
-		   justify-content:center;/* Centers the items horizontally*/
-		   padding-left :0px;/* Removes default padding from left*/
-		   margin-left :0px;/* Removes default margin from left*/
+           list-style-type:none;
+		   display:flex;
+		   justify-content:center;
+		   padding-left :0px;
+		   margin-left :0px;
        }
 
        nav ul li {
-		   margin-right :20px;/* Spacing between each list item*/
+		   margin-right :20px;
        }
 
 	   nav ul li:last-child {
-		   margin-right :0;/* Removes margin from the last item*/
+		   margin-right :0;
 	   }
 
 	   nav a {
-		   text-decoration:none;/* Removes underline from links*/
-		   color:#fff;/* Sets link color to white*/
-   		   padding :10px 15px;/* Adds padding for a larger click area*/
+		   text-decoration:none;
+		   color:#fff;
+   		   padding :10px 15px;
  	   }
         
     </style>
@@ -88,24 +87,22 @@
             <li><a href="home.html">Home</a></li>
             <li><a href="pages/conversion.html">Conversion</a></li>
             <li><a href="income_tax.html">Income Tax</a></li>
-            <li><a href="factorial.html">Factorials</a></li>   
-            <li><a href="simple_payroll.html">Simple Payroll</a></li> <!-- New option -->
+            <li><a href="pages/factorial.html">Factorials</a></li>   
+            <li><a href="simple_payroll.html">Simple Payroll</a></li>
         </ul> 
     </nav>
 </header>
 
 <div style="height: 1500px;">
-   <!-- Your content goes here -->
+   <!-- Content -->
 </div>
 
 <script>
 window.addEventListener('scroll', function() {
     var banner = document.getElementById('banner');
     if (window.pageYOffset > 0) {
-        // If the user has scrolled down, show the banner
         banner.classList.add('show');
     } else {
-        // If the user is at the top of the page, hide the banner
         banner.classList.remove('show');
     }
 });
