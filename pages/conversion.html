@@ -43,9 +43,9 @@
         }
         
         .menu-toggle {
-        position: fixed; /* Fixed position */
-        top: 20px; /* Distance from the top */
-        left: 20px; /* Distance from the left */
+        position: fixed;
+        top: 20px; 
+        left: 20px; 
         z-index: 999;
         }
         
@@ -59,13 +59,13 @@
         .sidebar {
             position: fixed;
             top: 0;
-            left: -250px; /* Initially hidden */
+            left: -250px;
             width: 250px;
             height: 100%;
             background-color: #111;
             overflow-x: hidden;
             padding-top: 20px;
-            transition: left 0.3s ease; /* Smooth transition */
+            transition: left 0.3s ease;
         }
 
         .sidebar a {
@@ -74,31 +74,20 @@
             font-size: 25px;
             color: #818181;
             display: block;
-            margin-top: 40px; /* Increase margin to push it further down */
+            margin-top: 40px; 
         }
 
         .sidebar a:hover {
           color:#f1f1f1; 
         }
 
-        /* Updated close button style */
         .close-btn {
             position: absolute;
-            top: 10px; /* Adjust to align properly */
-            right: 10px; /* Position to the top-right corner of the sidebar */
-            font-size: 24px; /* Make the button smaller */
+            top: 10px;
+            right: 10px; 
+            font-size: 24px; 
             cursor: pointer;
             color: #818181;
-        }
-        /* Style for the fixed-position element */
-        .fixed-element {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            background-color: #f2f2f2;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -149,16 +138,15 @@
 });
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.menu-toggle').addEventListener('click', function(e) {
-        e.stopPropagation(); // Prevent event bubbling
+        e.stopPropagation();
         document.querySelector('.sidebar').style.left = '0';
-        // Close sidebar when clicking outside of it
         document.body.addEventListener('click', closeMenuOnClick);
     });
 
     function closeMenuOnClick(e) {
         if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
             closeMenu();
-            document.body.removeEventListener('click', closeMenuOnClick); // Remove event listener after closing menu
+            document.body.removeEventListener('click', closeMenuOnClick);
         }
     }
 
@@ -197,8 +185,6 @@ case 'feetToMeters':
 }
 }
    </script >
-
-<div class="fixed-element">Simple Computations in Javascript</div>
     
    </body >
    </html >
