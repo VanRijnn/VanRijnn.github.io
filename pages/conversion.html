@@ -62,11 +62,15 @@
          }
 
          .dropdown-container {
-         display: none;
-    position: absolute; /* Add this line */
-    left: -250px; /* Add this line */
-}
-
+         display: block;
+         position: fixed;
+         top: 0;
+         left: -250px; /* Initially hidden */
+         background-color: #111;
+         overflow-x: hidden;
+         padding-top: 20px;
+         transition: left 0.3s ease; /* Add transition for smooth animation */
+	 }
           .dropdown-btn{
               padding :6px 8px 6px 16 px ;  
           }
@@ -80,7 +84,7 @@
 
 <!-- Sidebar -->
 <div class="sidebar">
-    <button class="dropdown-btn">Menu
+    <button class="dropdown-btn" onclick="toggleMenu()">Menu
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-container">
@@ -116,7 +120,7 @@
 
 
 <script >
-// Function to handle clicking on the menu button
+// Function to handle clicking outside the menu
 document.addEventListener('click', function(event) {
   var dropdownBtn = document.querySelector('.dropdown-btn');
   var dropdownContainer = document.querySelector('.dropdown-container');
@@ -130,10 +134,10 @@ document.addEventListener('click', function(event) {
 var dropdownBtn = document.querySelector('.dropdown-btn');
 dropdownBtn.addEventListener('click', function() {
   var dropdownContainer = document.querySelector('.dropdown-container');
-  if (dropdownContainer.style.left === '-250px') {
-    dropdownContainer.style.left = '0'; // Show the menu
+  if (dropdownContainer.style.left === '0px') {
+    dropdownContainer.style.left = '-250px'; // Hide the menu
   } else {
-    dropdownContainer.style.left = '-250px'; // Hide the menu back to its default spot
+    dropdownContainer.style.left = '0'; // Show the menu
   }
 });
 function convert() {    
