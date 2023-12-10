@@ -1,119 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <link rel="icon" href="https://i.ibb.co/TMCcj51/welt-yang-honkai-and-1-more-ef1ec9ecc5814bd20e8fe4130cff4cb8.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to My Website</title>
     <style>
-        body {
-            font-family: 'Fraunces', serif;
-            margin: 0;
-            padding: 0;
-            background-image: url('images/46.jpg'); 
-            background-size: cover; 
-            background-position: center;
-            background-repeat: no-repeat; 
-            color: #fff;
-            min-height: 1500px; 
-        }
+      body {
+        font-family: 'Fraunces', serif;
+        margin: 0;
+        padding: 0;
+        background-image: url('../images/46.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: #fff;
+        min-height: 1500px;
+      }
 
-        header {
-            position: relative;
-            overflow: hidden;
-        }
+      header {
+        position: relative;
+        overflow: hidden;
+      }
 
-        .banner {
-            background-color: #fff;
-            color: #000;
-            text-align: center;
-            padding: 20px;
-            position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			z-index: 1000;
-			transition: top 0.3s;
-        }
-		
-		.banner.show {
-                    top: 0;
-                }
+      a {
+        color: inherit;
+        text-decoration: underline;
+        transition: color 0.25s ease;
+      }
 
-                .banner {
-                    top: -100px; 
-                    }
-	    
-        nav {
-           text-align:center; 
-           padding-top :10px;
-           padding-bottom :10px;
-		   background-color:#333; 
-		   box-shadow : 0 2px 5px rgba(0,0,0,0.2);
-		   z-index :100;
-       }
+      .banner {
+        background-color: #fff;
+        color: #000;
+        text-align: center;
+        padding: 20px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        transition: top 0.3s;
+      }
 
-       nav ul {
-           list-style-type:none;
-           display:flex;
-           justify-content:center;
-           padding-left :0px;
-           margin-left :0px;
-       }
+      .banner.show {
+        top: 0;
+      }
 
-       nav ul li {
-           margin-right :20px;
-       }
+      .banner {
+        top: -100px;
+      }
 
-       nav ul li:last-child {
-           margin-right :0;
-       }
+      nav {
+        text-align: center;
+        padding-bottom: 1px;
+        background-color: #333;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 100;
+      }
 
-       nav a {
-           text-decoration:none;
-           color:#fff;
-           padding :10px 15px;
+      nav ul {
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        padding-left: 0px;
+        margin-left: 0px;
+      }
 
-       }
-        
+      nav ul li {
+        margin-right: 20px;
+      }
+
+      nav ul li:last-child {
+        margin-right: 0;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #fff;
+        padding: 10px 15px;
+      }
+
+      #main {
+        --alignment: left;
+        --flex-alignment: flex-start;
+        --indent-left: 1;
+        --indent-right: 0;
+        --border-radius-tl: 0;
+        --border-radius-tr: 0;
+        --border-radius-br: 0;
+        --border-radius-bl: 0;
+        align-items: center;
+        display: flex;
+        flex-grow: 0;
+        flex-shrink: 0;
+        justify-content: center;
+        max-width: 100%;
+        position: relative;
+        text-align: var(--alignment);
+        z-index: 1;
+        transition: opacity 1s ease-in-out 0s;
+      }
+
+      .buttons {
+        cursor: default;
+        display: flex;
+        justify-content: var(--flex-alignment);
+        letter-spacing: 0;
+        padding: 0;
+      }
+
+      .buttons li {
+        max-width: 100%;
+      }
+
+      .buttons li a {
+        align-items: center;
+        justify-content: center;
+        max-width: 100%;
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+        white-space: nowrap;
+      }
+
+      #buttons02 {
+        gap: 0.625rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      #buttons02 li a {
+        display: inline-block;
+        width: auto;
+        height: 1.5rem;
+        line-height: 1.5rem;
+        padding: 0 0.75rem;
+        vertical-align: middle;
+        text-transform: uppercase;
+        font-family: 'Fraunces', serif;
+        letter-spacing: 0.125rem;
+        padding-left: calc(0.125rem + 0.75rem);
+        font-size: 0.5em;
+        font-weight: 100;
+        border-radius: 0rem;
+        direction: var(--site-language-direction);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        transition: transform 0.5s ease, color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
+      }
+
+      #buttons02 .button {
+        background-color: rgba(14, 15, 23, 0.769);
+        color: #FFFFFF;
+      }
+
+      #buttons02 .button:hover {
+        background-color: rgba(55, 58, 82, 0.769) !important;
+      }
+
+      #buttons02 li a:hover {
+        transform: scale(0.9225);
+      }
+
+      .buttons.style1 {
+        gap: 0.875rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .buttons.style1 li a {
+        display: inline-flex;
+        width: auto;
+        height: 1.5rem;
+        line-height: 1.5rem;
+        padding: 0 0.75rem;
+        vertical-align: middle;
+        text-transform: uppercase;
+        font-family: 'Source Sans Pro', sans-serif;
+        letter-spacing: 0.2rem;
+        padding-left: calc(0.2rem + 0.75rem);
+        font-size: 0.625em;
+        font-weight: 300;
+        border-radius: 1.5rem;
+        flex-direction: row-reverse;
+        transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
+      }
+
+      .buttons.style1 li a svg {
+        display: block;
+        fill: #FFFFFF;
+        flex-grow: 0;
+        flex-shrink: 0;
+        height: 100%;
+        min-width: 18px;
+        width: 1.25em;
+        margin-left: 0.5em;
+        margin-right: calc(-0.125em + 0.2rem);
+        transition: fill 0.5s ease;
+      }
+
+      #buttons02 {
+        gap: 0.625rem;
+      }
+
+      #buttons02 li a {
+        letter-spacing: 0.125rem;
+        padding-left: calc(0.125rem + 0.75rem);
+        font-size: 0.75em;
+      }
+
+      .container.style1>.wrapper>.inner {
+        --spacing: 0rem;
+      }
+
+      .container.style1>.wrapper>.inner {
+        --gutters: 0rem;
+        --padding-horizontal: 6rem;
+        --padding-vertical: 0.375rem;
+        --spacing: 0rem;
+        padding: var(--padding-vertical) var(--padding-horizontal);
+      }
+
+      .container.style1>.wrapper>.inner {
+        --gutters: 0rem;
+        --padding-horizontal: 2rem;
+        --padding-vertical: 0.375rem;
+        --spacing: 0rem;
+      }
+
+      #wrapper {
+        padding-top: 1px;
+      }
     </style>
-</head>
-<body>
-
-<header>
-    <div class="banner" id="banner">
+  </head>
+  <body>
+    <header>
+      <div class="banner" id="banner">
         <h1>Welcome to my website! Feel free to look around!</h1>
+      </div>
+      <nav>
+        <div id="wrapper">
+          <div id="main">
+            <div class="inner">
+              <ul id="buttons02" class="buttons style1">
+                <li>
+                  <a href="pages/home.html" class="button n01">Home</a>
+                </li>
+                <li>
+                  <a href="pages/conversion.html" class="button n02">Conversion</a>
+                </li>
+                <li>
+                  <a href="pages/income_tax.html" class="button n03">Income Tax</a>
+                </li>
+                <li>
+                  <a href="pages/factorial.html" class="button n04">Factorials</a>
+                </li>
+                <li>
+                  <a href="pages/simple_payroll.html" class="button n05">Simple Payroll</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div style="height: 1500px;">
+      <!-- Content -->
     </div>
-
-    <nav>
-        <ul>
-            <li><a href="pages/home.html">Home</a></li>
-            <li><a href="pages/conversion.html">Conversion</a></li>
-            <li><a href="pages/income_tax.html">Income Tax</a></li>
-            <li><a href="pages/factorial.html">Factorials</a></li>   
-            <li><a href="pages/simple_payroll.html">Simple Payroll</a></li>
-        </ul> 
-    </nav>
-</header>
-
-<div style="height: 1500px;">
-   <!-- Content -->
-</div>
-
-<script>
-window.addEventListener('scroll', function() {
-    var banner = document.getElementById('banner');
-    if (window.pageYOffset > 50) { 
-        banner.style.top = "0"; 
-		banner.style.transition = "top 300ms";
-		document.querySelector('nav').style.top = "60px"; 
-		document.querySelector('nav').style.transition = "top 300ms";
-    } else {
-		banner.style.top = "-100%"; 
-		document.querySelector('nav').style.top = "100%";
-	}
-});
-</script>
-
-</body>
+    <script>
+      window.addEventListener('scroll', function() {
+        var banner = document.getElementById('banner');
+        if (window.pageYOffset > 50) {
+          banner.style.top = "0";
+          banner.style.transition = "top 300ms";
+          document.querySelector('nav').style.top = "60px";
+          document.querySelector('nav').style.transition = "top 300ms";
+        } else {
+          banner.style.top = "-100%";
+          document.querySelector('nav').style.top = "100%";
+        }
+      });
+    </script>
+  </body>
 </html>
