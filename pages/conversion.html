@@ -131,22 +131,24 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('.menu-toggle').addEventListener('click', function(e) {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const sidebar = document.querySelector('.sidebar');
+
+    menuToggle.addEventListener('click', function(e) {
         e.stopPropagation(); // Prevent event bubbling
-        document.querySelector('.sidebar').style.left = '0';
-        // Close sidebar when clicking outside of it
+        sidebar.style.left = '0';
         document.body.addEventListener('click', closeMenuOnClick);
     });
 
     function closeMenuOnClick(e) {
-        if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
+        if (!sidebar.contains(e.target) && e.target !== menuToggle) {
             closeMenu();
-            document.body.removeEventListener('click', closeMenuOnClick); // Remove event listener after closing menu
+            document.body.removeEventListener('click', closeMenuOnClick);
         }
     }
 
     function closeMenu() {
-        document.querySelector('.sidebar').style.left = '-250px';
+        sidebar.style.left = '-250px';
     }
 });
     function convert() {    
