@@ -131,7 +131,17 @@
 
 <div id ="assignmentName" >Simple Computations in Javascript </div>
 
-<script>
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+          $('.menu-toggle').click(function(){
+            $('.sidebar').toggleClass('active');
+          });
+
+          $('.menu-toggle').click(function(){
+            $(this).toggleClass('active');
+          });
+        });
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.menu-toggle').addEventListener('click', function(e) {
         e.stopPropagation(); // Prevent event bubbling
@@ -181,15 +191,6 @@ case 'feetToMeters':
      document.getElementById('result').innerText= "Please select a conversion type";    
 }
 }
-    $(document).ready(function(){
-          $('.menu-toggle').click(function(){
-            $('.sidebar').toggleClass('active');
-          });
-
-          $('.menu-toggle').click(function(){
-            $(this).toggleClass('active');
-          });
-        });
    </script >
 
    </body >
