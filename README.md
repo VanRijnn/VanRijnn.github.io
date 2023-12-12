@@ -1,44 +1,21 @@
-# VanRijnn.github.io
-ALL FINAL EXAMS CANCELLED!!!
- NEW Rubric ON WEB PROJECT (CONVERSION, LOOPING, INCOME TAX AND PAYROLL)
+About My Projects
+Welcome to the repository showcasing a collection of class projects featured on my specially programmed personal website hosted on GitHub. Each project is crafted with a mix of HTML and JavaScript, providing interactive and user-friendly experiences. Below, you'll find a brief overview of each project:
 
-THOSE WHO HAVE SUBMITTED EARLIER MUST UPDATE THEIR WEBSITE TO CONFORM TO THIS Rubric.
-Deadline: December 11, 2023 12 midnight.
+Conversion
+The Unit Conversion project is your go-to tool for seamless unit and measurement conversions. From Fahrenheit to Celsius, Feet to Meters, and more, this project simplifies complex conversions, making it a handy resource for quick calculations.
 
-Project Feature	
-Weight
-Published Web Page (HTML)
-(Github or W3Spaces)	30%
-Javascript Accuracy	30%
-Styles and Layouts	25%
-Use of Modals	15%
-                                              TOTAL                                           100%
-Published Web Page - Completeness of all Web Components Conversion,Looping, Income Tax and Payroll
+Factorials
+The Factorial project is designed to showcase the factorial, sum, and average of the user's numerical input, providing swift solutions to factorial conundrums. It's your go-to mathematical ally, simplifying the process for hassle-free calculations.
 
-(***Note: Unpublished or Unviewable Websites will have no credit.  Test your website by viewing your URL from a browser ***)
+Income Tax
+Navigating the complexities of income tax calculations just got easier with the Income Tax project. This user-friendly tool guides you through the intricacies of income tax, by asking the user to input their taxable income amount.
 
-Javascript  Accuracy  - Javascript code is running properly and computes the correct results
+Simple Payroll
+Streamline payroll processes and gain insights into the world of hassle-free payroll management all compiled in a neat table, displaying the employees' name, days worked, daily rate, gross pay, deduction amount, and net pay, with an easy-to-use interface to optimize user experience (dialogue modals included).
 
-Styling and Layout - Font Styles, Button Styles, Div Positions or Layouts, Alignment of Inputs, text and numbers.  Integer Inputs and Displays should be right aligned at 0 decimal laces. Currency Inputs and Displays should be right aligned at 2 decimal places.
-
-Use of Modals - User confirmation i.e. deleting of records, clearing of rows should be done using dialog modals instead of javascript confirms.  Try the version 5 of shopping cart at https://jrageralde.github.io/ITC/ShoppingCart5.html. Try adding several items and deleting an item then clearing the cart.  View the page source and study the code on use of dialogs as modals.  
-
-**Note: Your Prefinals Grade will be computed by getting 50% of your Circuitverse Project and 50% from your individual web page project
+The interactive nature of each project aims to enhance user experience and provide practical solutions to everyday challenges. Enjoy exploring the diverse functionalities showcased in these ItC class projects!
 
 
-Watch the video on creating modals using html dialog tags:
 
-To Transfer files from W3SPACES to Github:
-https://youtu.be/CqLimH8Gb6s
-
-The video on publishing websites in github:
-https://youtu.be/CqLimH8Gb6s
-
-1. For each file in w3spaces, create the same file (using the same name) in your github repository.
-2. Open each file in w3spaces, select all contents (ctrl A) and copy (ctrl C)
-3. Open the corresponding file in github and click the edit file button (pencil icon on the upper right side of the edit box)
-4. Click the  contents area and paste (CTRL V)
-5. Click commit changes.
-
-*** Note: Downloading from w3spaces is not available for FREE accounts, so you have to copy contents inline.
-
+Under Section 107 of the Copyright Act 1976, allowance is made for “fair use” for purposes such as criticism, comment, news reporting, teaching, scholarship, education and research. Fair use is a use permitted by copyright statute that might otherwise be infringing.
+Non-profit, educational or personal use tips the balance in favor of fair use. No copyright infringement or commercial benefits intended. ALL RIGHTS BELONG TO THEIR RESPECTIVE OWNERS.
