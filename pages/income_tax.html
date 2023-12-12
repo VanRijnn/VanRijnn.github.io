@@ -190,7 +190,7 @@
         } else {
           tax = 2410000 + 0.35 * (income - 8000000);
         }
-        document.getElementById('result').innerHTML = `Income Tax: PHP ${tax.toLocaleString('en-US', { maximumFractionDigits: 2 })}`;
+        document.getElementById('result').innerHTML = `Income Tax: PHP ${tax.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
           document.getElementById('loadingGif').style.display = 'none';
         }, 5000);
       }           
