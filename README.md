@@ -18,7 +18,10 @@ Navigating the complexities of income tax calculations just got easier with the 
 
 Streamline payroll processes and gain insights into the world of hassle-free payroll management all compiled in a neat table, displaying the employees' name, days worked, daily rate, gross pay, deduction amount, and net pay, with an easy-to-use interface to optimize user experience (dialogue modals included).
 
-The interactive nature of each project aims to enhance user experience and provide practical solutions to everyday challenges. Enjoy exploring the diverse functionalities showcased in these ItC class projects!
+**The interactive nature of each project aims to enhance user experience and provide practical solutions to everyday challenges. Enjoy exploring the diverse functionalities showcased in these ItC class projects!**
+
+
+
 
 
 
