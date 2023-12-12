@@ -123,9 +123,13 @@
     </div>
     <h1>Welcome to the Income Tax Calculator!</h1>
     <label for="income">Enter your taxable income (in PHP):</label>
-    <input type="number" id="income" name="income">
+    
+    <img src="../images/loading.gif" alt="Loading" id="loadingGif" style="display: none;">
+
+    <input type="number" id="income" placeholder="Enter income">
     <button onclick="calculateTax()">Calculate Tax</button>
     <p id="result"></p>
+    
     <div id="assignmentName">Income Tax Calculator Program</div>
     <img src="../images/table.png" alt="Table Image">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -151,11 +155,15 @@
         }
       });
 
-      function closeMenu() { // Moved outside DOMContentLoaded event listener
+      function closeMenu() { 
         document.querySelector('.sidebar').style.left = '-250px';
       }
 
       function calculateTax() {
+        document.getElementById('loadingGif').style.display = 'block'; 
+        document.getElementById('result').innerHTML = '';
+
+        setTimeout(function() {
         let income = document.getElementById('income').valueAsNumber;
         let tax = 0;
         if (income <= 250000) {
@@ -172,7 +180,9 @@
           tax = 2410000 + 0.35 * (income - 8000000);
         }
         document.getElementById('result').innerHTML = `Income Tax: PHP ${tax.toFixed(2)}`;
-      }
+          document.getElementById('loadingGif').style.display = 'none';
+        }, 5000);
+      }           
     </script>
   </body>
 </html>
