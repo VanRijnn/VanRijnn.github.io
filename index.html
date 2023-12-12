@@ -103,29 +103,29 @@
 
       #avatar {
         position: fixed;
-        bottom: -100px;
-        left: 50%;
+        bottom: -962px;
+        left: 15%;
+        margin-bottom: -35px;
         transform: translateX(-50%);
         transition: bottom 1s ease-in-out;
+      }
+
+      #avatar img {
+        width: 500px;
+      }
+
+      #avatar.stopped {
+        bottom: calc(100vh - 962px);
       }
 
       #speechBubble {
         display: none;
         position: absolute;
-        background-color: #fff;
+        background-color: #333;
+        color: #fff;
         padding: 10px;
-        top: -150px;
-        right: -250px;
-      }
-
-      .dimScreen {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 9999;
+        top: 100px;
+        right: -500px;
       }
 
       .fade-out {
@@ -312,46 +312,63 @@
       <!-- Content -->
     </div>
     <div id="avatar">
-      <img src="images/avatar.png" alt="Avatar" width="50px">
-      <div id="speechBubble"></div>
-    </div>
-    <script>
-      // Prototype of tutorial system
-      window.onload = function() {
-        var avatar = document.getElementById('avatar');
-        var speechBubble = document.getElementById('speechBubble');
-        avatar.style.bottom = '20px';
-        setTimeout(function() {
-          speechBubble.style.display = 'block';
-          speechBubble.textContent = "Hey, you're here... welcome to my website, I guess.";
-        }, 1000);
-        setTimeout(function() {
-          speechBubble.textContent = "This is the navigation bar. It helps you explore different sections of the website.";
-        }, 3000);
-        setTimeout(function() {
-          speechBubble.textContent = "Well, have fun and good luck exploring!";
-        }, 8000);
-        document.addEventListener('click', function() {
-          var dimScreen = document.querySelector('.dimScreen');
-          dimScreen.classList.remove('fade-out');
+      <img src="https://i.ibb.co/c3t7gxM/avatar.png" alt="Avatar" width="50px">
+      <div id="speechBubble">
+        <p>Hey there! How can I assist you today?</p>
+        <p>Click anywhere to continue...</p>
+      </div>
+      <script>
+        // tutorial system
+        window.onload = function() {
+          var avatar = document.getElementById('avatar');
+          var speechBubble = document.getElementById('speechBubble');
+                 var dialogues = [
+         "Hey, you're here... welcome to the website, I guess.",
+         "I've been hired to be your guide here tonight.",
+         "Up top, you've got the navigation bar – think of it as your roadmap to all things cool on this site.",
+         "First stop, the 'Home' button – your backstage pass to where you get a front-row seat to the nerd behind the site.",
+         "Click it to dive into his bio, interests, and what makes this digital lair tick. ",
+         "Now, let's get to the good stuff – the projects.",
+         "Hit up 'Conversion' when you need to flex those unit and measurement conversion muscles of yours.",
+         "Then we roll into 'Income Tax.' Tame that tax beast and get a grip on your financial game.",
+         "Next, we're hitting 'Factorials.' Ever been stuck in a factorial maze? This project's got your back, making those math headaches a thing of the past.",
+         "And last but not least, the 'Simple Payroll' – your backstage pass to smooth payroll management.",
+         "Well, feel free to look around. If you got any questions, feel free to shoot 'em my way.",
+         "That's pretty much all he wanted me to say.",
+         "You'll know where to find me and good luck. Epsilon out.",
+       ];
+       var currentDialogueIndex = 0;
+
+          function showNextDialogue() {
+            if (currentDialogueIndex < dialogues.length) {
+              speechBubble.textContent = dialogues[currentDialogueIndex++];
+            } else {
+              document.removeEventListener('click', showNextDialogue);
+              speechBubble.style.display = 'none';
+              avatar.style.transition = 'right 1s';
+              avatar.style.right = '-200px';
+            }
+          }
+          avatar.style.bottom = '30px';
           setTimeout(function() {
-            dimScreen.style.display = 'none';
-            avatar.style.display = 'none';
-          }, 3000);
+            speechBubble.style.display = 'block';
+            showNextDialogue();
+          }, 1000);
+          document.body.addEventListener('click', showNextDialogue);
+        };
+        document.getElementById('avatar').classList.add('stopped');
+        window.addEventListener('scroll', function() {
+          var banner = document.getElementById('banner');
+          if (window.pageYOffset > 50) {
+            banner.style.top = "0";
+            banner.style.transition = "top 300ms";
+            document.querySelector('nav').style.top = "60px";
+            document.querySelector('nav').style.transition = "top 300ms";
+          } else {
+            banner.style.top = "-100%";
+            document.querySelector('nav').style.top = "100%";
+          }
         });
-      };
-      window.addEventListener('scroll', function() {
-        var banner = document.getElementById('banner');
-        if (window.pageYOffset > 50) {
-          banner.style.top = "0";
-          banner.style.transition = "top 300ms";
-          document.querySelector('nav').style.top = "60px";
-          document.querySelector('nav').style.transition = "top 300ms";
-        } else {
-          banner.style.top = "-100%";
-          document.querySelector('nav').style.top = "100%";
-        }
-      });
-    </script>
+      </script>
   </body>
 </html>
