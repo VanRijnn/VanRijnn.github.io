@@ -105,6 +105,10 @@
         cursor: pointer;
         color: #818181;
       }
+      #loadingGif {
+        display: block;
+        margin: 0 auto;
+      }
     </style>
   </head>
   <body>
@@ -146,7 +150,7 @@
           document.querySelector('.sidebar').style.left = '0';
           document.body.addEventListener('click', closeMenuOnClick);
         });
-        document.querySelector('.close-btn').addEventListener('click', closeMenu); // Added event listener for close button
+        document.querySelector('.close-btn').addEventListener('click', closeMenu);
         function closeMenuOnClick(e) {
           if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
             closeMenu();
