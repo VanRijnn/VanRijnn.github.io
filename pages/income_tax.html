@@ -61,7 +61,8 @@
         text-align: center;
       }
       #loadingGif {
-        display: inline-block;
+        display: block;
+        margin: 20px auto; 
       }
       .menu-toggle {
         position: fixed;
@@ -130,7 +131,7 @@
     <label for="income">Enter your taxable income (in PHP):</label>
 
     <div id="loading-container">
-    <img src="../images/loading.gif" alt="Loading" id="loadingGif" style="display: none;">
+      <img src="../images/loading.gif" alt="Loading" id="loadingGif" style="display: none;">
     </div>
     
     <input type="number" id="income" placeholder="Enter income">
