@@ -132,12 +132,14 @@
     </div>
     <h1>Welcome to the Income Tax Calculator!</h1>
     <label for="income">Enter your taxable income (in PHP):</label>
-
-      <img src="../images/loading.gif" alt="Loading" id="loadingGif" style="display: none;">
     
     <input type="number" id="income" placeholder="Enter income">
     <button onclick="calculateTax()">Calculate Tax</button>
     <p id="result"></p>
+
+    <div class="gif-container">
+      <img src="../images/loading.gif" alt="Loading" id="loadingGif">
+    </div>    
     
     <div id="assignmentName">Income Tax Calculator Program</div>
     <img src="../images/table.png" alt="Table Image">
