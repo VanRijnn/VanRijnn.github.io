@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link rel="icon" href="https://i.ibb.co/TMCcj51/welt-yang-honkai-and-1-more-ef1ec9ecc5814bd20e8fe4130cff4cb8.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to My Website</title>
-  <style>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="https://i.ibb.co/TMCcj51/welt-yang-honkai-and-1-more-ef1ec9ecc5814bd20e8fe4130cff4cb8.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My Website</title>
+    <style>
       body {
         font-family: 'Fraunces', serif;
         margin: 0;
@@ -105,7 +105,7 @@
         position: fixed;
         bottom: -962px;
         left: 15%;
-        margin-bottom: -35px;
+        margin-bottom: -85px;
         transform: translateX(-50%);
         transition: bottom 1s ease-in-out;
       }
@@ -125,7 +125,19 @@
         color: #fff;
         padding: 30px;
         top: 100px;
-        right: -500px;
+        right: -600px;
+        font-size: 25px;
+      }
+      
+      #tutorialIcon {
+        position: fixed;
+        right: 20px; 
+        bottom: 20px; 
+        cursor: pointer;
+     }
+      #tutorialIcon:hover img {
+        transform: scale(1.1);
+        transition: transform 0.3s ease;
       }
 
       .fade-out {
@@ -275,72 +287,85 @@
       #wrapper {
         padding-top: 1px;
       }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="banner" id="banner">
-      <h1>Welcome to my website! Feel free to look around!</h1>
-    </div>
-    <nav>
-      <div id="wrapper">
-        <div id="main">
-          <div class="inner">
-            <ul id="buttons02" class="buttons style1">
-              <li>
-                <a href="pages/home.html" class="button n01">Home</a>
-              </li>
-              <li>
-                <a href="pages/conversion.html" class="button n02">Conversion</a>
-              </li>
-              <li>
-                <a href="pages/income_tax.html" class="button n03">Income Tax</a>
-              </li>
-              <li>
-                <a href="pages/factorial.html" class="button n04">Factorials</a>
-              </li>
-              <li>
-                <a href="pages/simple_payroll.html" class="button n05">Simple Payroll</a>
-              </li>
-              <li>
-                <a href="index.html" class="button n06">Help</a>
-              </li>
-            </ul>
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="banner" id="banner">
+        <h1>Welcome to my website! Feel free to look around!</h1>
+      </div>
+      <nav>
+        <div id="wrapper">
+          <div id="main">
+            <div class="inner">
+              <ul id="buttons02" class="buttons style1">
+                <li>
+                  <a href="pages/home.html" class="button n01">Home</a>
+                </li>
+                <li>
+                  <a href="pages/conversion.html" class="button n02">Conversion</a>
+                </li>
+                <li>
+                  <a href="pages/income_tax.html" class="button n03">Income Tax</a>
+                </li>
+                <li>
+                  <a href="pages/factorial.html" class="button n04">Factorials</a>
+                </li>
+                <li>
+                  <a href="pages/simple_payroll.html" class="button n05">Simple Payroll</a>
+                </li>
+                <li>
+                  <a href="index.html" class="button n06">Help</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
-  </header>
-  <div style="height: 1500px;">
-    <!-- Content -->
-  </div>
-  <div id="avatar">
-    <img src="https://i.ibb.co/c3t7gxM/avatar.png" alt="Avatar" width="50px">
-    <div id="speechBubble">
-      <p>Hey there! How can I assist you today?</p>
-      <p>Click anywhere to continue...</p>
+      </nav>
+    </header>
+    <div style="height: 1500px;">
     </div>
-    <script>
+    <div id="avatar">
+      <img src="https://i.ibb.co/c3t7gxM/avatar.png" alt="Avatar" width="50px">
+      <div id="speechBubble">
+      </div>
+      <div class="speech-bubble">
+  <p class="message">Your message here</p>
+</div>
+      <div id="tutorialIcon" style="position: fixed; right: -1350px; bottom: 50px; cursor: pointer;">
+        <img src="https://i.ibb.co/nM4XSR8/guide.png" alt="Guide" style="width: 200px; height: 150px;">
+      </div>
+      <script>
         // tutorial system
         window.onload = function() {
           var avatar = document.getElementById('avatar');
           var speechBubble = document.getElementById('speechBubble');
-                 var dialogues = [
-         "Hey, you're here... welcome to the website, I guess.",
-         "I've been hired to be your guide here tonight.",
-         "Up top, you've got the navigation bar – think of it as your roadmap to all things cool on this site.",
-         "First stop, the 'Home' button – your backstage pass to where you get a front-row seat to the nerd behind the site.",
-         "Click it to dive into his bio, interests, and what makes this digital lair tick. ",
-         "Now, let's get to the good stuff – the projects.",
-         "Hit up 'Conversion' when you need to flex those unit and measurement conversion muscles of yours.",
-         "Then we roll into 'Income Tax.' Tame that tax beast and get a grip on your financial game.",
-         "Next, we're hitting 'Factorials.' Ever been stuck in a factorial maze? This project's got your back, making those math headaches a thing of the past.",
-         "And last but not least, the 'Simple Payroll' – your backstage pass to smooth payroll management.",
-         "Well, feel free to look around. If you got any questions, feel free to shoot 'em my way.",
-         "That's pretty much all he wanted me to say.",
-         "You'll know where to find me and good luck. Epsilon out.",
-       ];
-       var currentDialogueIndex = 0;
+          var dialogues = [
+              "Hey, you're here... welcome to the website, I guess.", 
+              "I've been hired to be your guide here tonight.", 
+              "Up top, you've got the navigation bar...", 
+              "—think of it as your roadmap to all things cool on this site.", 
+              "First stop, the 'Home' button...", 
+              "—it's the backstage pass to meet the nerd behind the site.",
+              "You'll find his bio, interests, and what makes this ol' place tick. ", 
+              "Now, let's get to the good stuff – the projects.", 
+              "Hit up 'Conversion' when you need to flex those...", 
+              "unit and measurement conversion skills of yours.", 
+              "Then we roll into 'Income Tax.'", 
+              "Tame that tax beast and get a grip on your financial game.",
+              "Next, we're hitting 'Factorials.' Ever been stuck in a factorial maze?", 
+              "This project's got your back!", 
+              "—making those math headaches a thing of the past.", 
+              "And last but not least, the 'Simple Payroll'", 
+              "—your ticket to smooth payroll management.", 
+              "Well, feel free to look around.", 
+              "If you got any questions, feel free to shoot 'em my way.", 
+              "That's pretty much all he wanted me to say.", 
+              "In case I forget, you know where to find me.", 
+              "Just press the 'Help' button right above yonder in the navigation bar.", 
+              "And hey... good luck out here. Epsilon out.", 
+              ];
+          var currentDialogueIndex = 0;
 
           function showNextDialogue() {
             if (currentDialogueIndex < dialogues.length) {
@@ -348,8 +373,7 @@
             } else {
               document.removeEventListener('click', showNextDialogue);
               speechBubble.style.display = 'none';
-              avatar.style.transition = 'right 1s';
-              avatar.style.right = '-200px';
+              avatar.style.right = '100px';
             }
           }
           avatar.style.bottom = '30px';
@@ -372,7 +396,7 @@
             document.querySelector('nav').style.top = "100%";
           }
         });
-    </script>
-  </div>
-</body>
+      </script>
+    </div>
+  </body>
 </html>
