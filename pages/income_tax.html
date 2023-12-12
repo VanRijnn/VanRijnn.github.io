@@ -57,9 +57,11 @@
         font-style: italic;
         color: #ccc;
       }
+      #loading-container {
+        text-align: center;
+      }
       #loadingGif {
-        display: block;
-        margin: 0 auto;
+        display: inline-block;
       }
       .menu-toggle {
         position: fixed;
@@ -126,9 +128,11 @@
     </div>
     <h1>Welcome to the Income Tax Calculator!</h1>
     <label for="income">Enter your taxable income (in PHP):</label>
-    
-    <img src="../images/loading.gif" alt="Loading" id="loadingGif" style="display: none;">
 
+    <div id="loading-container">
+    <img src="../images/loading.gif" alt="Loading" id="loadingGif" style="display: none;">
+    </div>
+    
     <input type="number" id="income" placeholder="Enter income">
     <button onclick="calculateTax()">Calculate Tax</button>
     <p id="result"></p>
